@@ -1,0 +1,60 @@
+<%- include('../layouts/header.ejs') -%>
+
+
+<div class="container text-center mt-5">
+    <h1>WELCOME, ADMIN .</h1>
+    <a href="/admin/logout"><button class="w-20 btn btn-lg btn-primary" type="submit">Log Out</button>
+    </a>
+</div>
+
+<div class="container text-center">
+    <input class="mt-5 w-50" type="text" name="" id="myInput" placeholder="Search..." onkeyup="searchFun()">
+    <table class="table" id="myTable">
+        <h3 class="text-center mt-5">USERS</h3>
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">NAME</th>
+              <th scope="col">EMAIL</th>
+              <th scope="col">PASSWORD</th>
+              <th scope="col">Action</th>
+  
+            </tr>
+          </thead>
+          <tbody>
+        
+              <% 
+              if(users.length > 0){
+                  for(let i=0; i < users.length;i++){
+                    %>
+
+                    
+                    <tr>
+                        <th scope="row"><%= i+1 %></th>
+                        <td><%=  users[i].name %></td>
+                        <td><%=  users[i].email %></td>
+                        <td> *******</td>
+                        <td> <a href="/admin/edit-user?id=<%= users[i]._id %>">Edit</a> <a href="/admin/delete-user?id=<%= users[i]._id %>">Delete</a></td>
+                    </tr>
+                    
+                    <%
+                }
+              }
+              else{
+                 %>
+                    <tr>No User Found</tr>
+                 <%
+              }
+              
+              %> 
+            
+         </tbody> 
+       </table> 
+       <a href="/admin/add-user"><button class="w-20 btn btn-lg btn-primary" type="submit">Add new User</button>
+       </a>
+
+ </div>
+
+
+
+<%- include('../layouts/footer.ejs') -%>

@@ -1,0 +1,36 @@
+<%- include('../layouts/header.ejs') -%>
+
+<h1 class="text-center m-5">User Registration Form</h1>
+<main class="form-signin w-25 m-auto text-center">
+    <% if (typeof message!=='undefined'){ %>
+    <p class="text-center"> <%= message %> </p>
+    <%}%>
+
+    <form method="POST" action="register">
+      <h1 class="h3 text-center mb-3 fw-normal">Please sign Up</h1>
+
+      <div class="form-floating">
+        <input type="name" name="name" class="form-control" id="floatingPassword" placeholder="Password" required>
+        <label for="floatingPassword">Name</label>
+      </div>
+      <div class="form-floating">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required >
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <!-- <div class="form-floating">
+        <input type="password" name="Cpassword" class="form-control" id="floatingPassword" placeholder="Confirm Password">
+        <label for="floatingPassword">Confirm Password</label>
+      </div> -->
+              
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    </form>
+    <p class="mt-2">Already have account?</p>
+    <a href="/login"><button class="w-20 btn btn-lg btn-primary" type="submit">Log in</button>
+    </a>
+  </main>
+
+<%- include('../layouts/footer.ejs') -%>
